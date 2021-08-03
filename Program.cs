@@ -48,7 +48,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -114,7 +113,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -173,7 +171,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -232,7 +229,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -277,7 +273,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -332,7 +327,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -371,7 +365,6 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
@@ -420,14 +413,99 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
-
             }
 
             return ref arrayToChange;
         }
         static void Main()
         {
+            int[] arrayForDemonstration = new int[3] { 1, 2, 3 };
+            string index , value, atBeginString;
+            uint indexUint;
+            int valueInt;
+            bool atBegin = true;
 
+            Console.WriteLine("Изначальный массив");
+            foreach (var item in arrayForDemonstration)
+            {
+                Console.Write(item + "\t");
+            }
+            Console.WriteLine();
+
+            Console.Write("Ввидите индекс, под которым вы бы хотели добавить элемент: \t");
+            index = Console.ReadLine();
+            Console.WriteLine();
+            try
+            {
+                indexUint = uint.Parse(index);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Присвоен некооректный индекс, базовое значение равно 0.");
+                indexUint = 0;
+            }
+
+            Console.Write("Введите значение элемента массива: \t");
+            value = Console.ReadLine();
+            Console.WriteLine();
+            try
+            {
+                valueInt = int.Parse(value);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Присвоен некооректное значение элемента, базовое значение равно 200.");
+                valueInt = 200;
+            }
+
+            Console.WriteLine("Массив после обработки методом");
+            AddToArray(ref arrayForDemonstration,indexUint,valueInt);
+            foreach (var item in arrayForDemonstration)
+            {
+                Console.Write(item + "\t");
+            }
+            Console.WriteLine();
+
+            arrayForDemonstration = new int[3] { 1, 2, 3 };
+
+            Console.WriteLine("Массив после обработки методом принимая параметры индекса и хначения элемента в виде строки:");
+            AddToArray(ref arrayForDemonstration,index,value);
+            foreach (var item in arrayForDemonstration)
+            {
+                Console.Write(item + "\t");
+            }
+            Console.WriteLine();
+
+            arrayForDemonstration = new int[3] { 1, 2, 3 };
+
+            Console.Write("Введите хотите ли вы добавить элемент в начало массива(Введите true) или введите что угодно, чтобы ставить в конец: \t");
+            atBeginString = Console.ReadLine();
+            Console.WriteLine();
+
+            atBegin = atBeginString == "true" ? true : false;
+
+            Console.WriteLine("Массив после обработки методом, принявшим булево значение отвечающие за добавление элемента либо в начало, либо в конец.");
+            AddToArray(ref arrayForDemonstration,atBegin,valueInt);
+            foreach (var item in arrayForDemonstration)
+            {
+                Console.Write(item + "\t");
+            }
+            Console.WriteLine();
+
+            arrayForDemonstration = new int[3] { 1, 2, 3 };
+
+            Console.WriteLine("Массив после обработки методом, принявшим только значение элемента");
+            AddToArray(ref arrayForDemonstration, valueInt);
+            foreach (var item in arrayForDemonstration)
+            {
+                Console.Write(item + "\t");
+            }
+            Console.WriteLine();
+
+            ///AddToArray(ref arrayForDemonstration, valueInt);
+
+
+            Console.ReadKey();
         }
     }
 }

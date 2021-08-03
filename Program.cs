@@ -252,6 +252,55 @@ namespace AddToArray
 
             return ref arrayToChange;
         }
+
+        /// <summary>
+        /// Метод добавляет элемент в начало или конец массива. toBeFirst = true - в начало, toBeFirst = false в конец. Элемент массива принмается в виде строки.
+        /// </summary>
+        /// <param name="arrayToChange"></param>
+        /// <param name="toBeFirst"></param>
+        /// <param name="valueOfElementString"></param>
+        /// <returns></returns>
+        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, string valueOfElementString) 
+        {
+            uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
+
+            int valueOfElement;
+
+            bool succesInParsingValue = true;
+
+            if (succesInParsingValue != int.TryParse(valueOfElementString, out valueOfElement))
+            {
+                Console.WriteLine("Вы ввели некорректное значение для элемента массива. Допустимо только челое число. Массив не был обработан.");
+                return ref arrayToChange;
+            }
+
+            int[] arrayForSavingData = new int[arrayToChange.Length];
+            uint newLengthOfArray = Convert.ToUInt32(arrayToChange.Length) + 1;
+
+            for (int currentElement = 0; currentElement < arrayToChange.Length; currentElement++)
+            {
+                arrayForSavingData[currentElement] = arrayToChange[currentElement];
+            }
+
+            arrayToChange = new int[newLengthOfArray];
+
+            for (uint currentElement = 0, elementOfArrayToOuput = 0; currentElement < arrayForSavingData.Length; currentElement++, elementOfArrayToOuput++)
+            {
+                if (indexOfElement == currentElement)
+                {
+                    arrayToChange[indexOfElement] = valueOfElement;
+                    elementOfArrayToOuput++;
+                }
+                else if (indexOfElement == arrayForSavingData.Length)
+                {
+                    arrayToChange[indexOfElement] = valueOfElement;
+                }
+                arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
+
+            }
+
+            return ref arrayToChange;
+        }
         static void Main()
         {
             

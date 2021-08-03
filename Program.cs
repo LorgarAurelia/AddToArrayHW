@@ -14,6 +14,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, uint indexOfElement, int valueOfElement)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             if (arrayToChange.Length < indexOfElement)
             {
                 Console.WriteLine("Заданный вами индекс находится за границами допустимого значения, массив не был обработан. Для данного массива максимальный допустимый индекс: " + arrayToChange.Length);
@@ -57,6 +63,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, string valueOfElementString)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             uint indexOfElement;
             int valueOfElement;
 
@@ -117,6 +129,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, uint indexOfElement, string valueOfElementString)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             int valueOfElement;
 
             bool succesInParsingValue = true;
@@ -170,6 +188,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, int valueOfElement)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             uint indexOfElement;
 
             bool succesInParsingIndex = true;
@@ -223,6 +247,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, int valueOfElement)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -262,6 +292,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, string valueOfElementString)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
 
             int valueOfElement;
@@ -310,6 +346,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, int valueOfElement)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             uint indexOfElement = Convert.ToUInt32((arrayToChange.Length));
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -343,6 +385,12 @@ namespace AddToArray
         /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, string valueOfElementString)
         {
+            if (arrayToChange == null)
+            {
+                Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
+                return ref arrayToChange;
+            }
+
             uint indexOfElement = Convert.ToUInt32((arrayToChange.Length));
 
             int valueOfElement;
@@ -379,6 +427,7 @@ namespace AddToArray
         }
         static void Main()
         {
+
         }
     }
 }

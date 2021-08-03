@@ -302,7 +302,12 @@ namespace AddToArray
             return ref arrayToChange;
         }
 
-
+        /// <summary>
+        /// Метод добовляет элемент в конец массива.
+        /// </summary>
+        /// <param name="arrayToChange"></param>
+        /// <param name="valueOfElement"></param>
+        /// <returns></returns>
         static ref int[] AddToArray(ref int[] arrayToChange, int valueOfElement)
         {
             uint indexOfElement = Convert.ToUInt32((arrayToChange.Length));

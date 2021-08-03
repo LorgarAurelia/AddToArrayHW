@@ -37,7 +37,7 @@ namespace AddToArray
                     arrayToChange[indexOfElement] = valueOfElement;
                     elementOfArrayToOuput++;
                 }
-                else if (indexOfElement == arrayForSavingData.Length) 
+                else if (indexOfElement == arrayForSavingData.Length)
                 {
                     arrayToChange[indexOfElement] = valueOfElement;
                 }
@@ -55,7 +55,7 @@ namespace AddToArray
         /// <param name="indexOfElementToChange"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, string valueOfElementString) 
+        static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, string valueOfElementString)
         {
             uint indexOfElement;
             int valueOfElement;
@@ -115,7 +115,7 @@ namespace AddToArray
         /// <param name="indexOfElementSting"></param>
         /// <param name="valueOfElementString"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, uint indexOfElement, string valueOfElementString) 
+        static ref int[] AddToArray(ref int[] arrayToChange, uint indexOfElement, string valueOfElementString)
         {
             int valueOfElement;
 
@@ -168,7 +168,7 @@ namespace AddToArray
         /// <param name="indexOfElementString"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, int valueOfElement) 
+        static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, int valueOfElement)
         {
             uint indexOfElement;
 
@@ -221,7 +221,7 @@ namespace AddToArray
         /// <param name="toBeFirst"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, int valueOfElement) 
+        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, int valueOfElement)
         {
             uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
 
@@ -260,7 +260,7 @@ namespace AddToArray
         /// <param name="toBeFirst"></param>
         /// <param name="valueOfElementString"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, string valueOfElementString) 
+        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, string valueOfElementString)
         {
             uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
 
@@ -301,9 +301,37 @@ namespace AddToArray
 
             return ref arrayToChange;
         }
+
+
+        static ref int[] AddToArray(ref int[] arrayToChange, int valueOfElement)
+        {
+            uint indexOfElement = Convert.ToUInt32((arrayToChange.Length));
+
+            int[] arrayForSavingData = new int[arrayToChange.Length];
+            uint newLengthOfArray = Convert.ToUInt32(arrayToChange.Length) + 1;
+
+            for (int currentElement = 0; currentElement < arrayToChange.Length; currentElement++)
+            {
+                arrayForSavingData[currentElement] = arrayToChange[currentElement];
+            }
+
+            arrayToChange = new int[newLengthOfArray];
+
+            for (uint currentElement = 0, elementOfArrayToOuput = 0; currentElement < arrayForSavingData.Length; currentElement++, elementOfArrayToOuput++)
+            {
+                if (indexOfElement == arrayForSavingData.Length)
+                {
+                    arrayToChange[indexOfElement] = valueOfElement;
+                }
+                arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
+
+            }
+
+            return ref arrayToChange;
+        }
         static void Main()
         {
-            
+
         }
     }
 }

@@ -12,18 +12,18 @@ namespace AddToArray
         /// <param name="arrayToChange"></param>
         /// <param name="indexOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, uint indexOfElement, int valueOfElement)
+        static void AddToArray(ref int[] arrayToChange, uint indexOfElement, int valueOfElement)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             if (arrayToChange.Length < indexOfElement)
             {
                 Console.WriteLine("Заданный вами индекс находится за границами допустимого значения, массив не был обработан. Для данного массива максимальный допустимый индекс: " + arrayToChange.Length);
-                return ref arrayToChange;
+                return;
             }
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -49,8 +49,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
 
         /// <summary>
@@ -60,12 +58,12 @@ namespace AddToArray
         /// <param name="indexOfElementToChange"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, string valueOfElementString)
+        static void AddToArray(ref int[] arrayToChange, string indexOfElementString, string valueOfElementString)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             uint indexOfElement;
@@ -76,19 +74,19 @@ namespace AddToArray
             if (succesInParsingIndex != uint.TryParse(indexOfElementString, out indexOfElement))
             {
                 Console.WriteLine("Вы ввели некорректное значение для индекса. Допустимо только целое число без знака. Массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             if (succesInParsingValue != int.TryParse(valueOfElementString, out valueOfElement))
             {
                 Console.WriteLine("Вы ввели некорректное значение для элемента массива. Допустимо только челое число. Массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             if (arrayToChange.Length < indexOfElement)
             {
                 Console.WriteLine("Заданный вами индекс находится за границами допустимого значения, массив не был обработан. Для данного массива максимальный допустимый индекс: " + arrayToChange.Length);
-                return ref arrayToChange;
+                return;
             }
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -114,8 +112,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
 
         /// <summary>
@@ -125,12 +121,12 @@ namespace AddToArray
         /// <param name="indexOfElementSting"></param>
         /// <param name="valueOfElementString"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, uint indexOfElement, string valueOfElementString)
+        static void AddToArray(ref int[] arrayToChange, uint indexOfElement, string valueOfElementString)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             int valueOfElement;
@@ -140,13 +136,13 @@ namespace AddToArray
             if (succesInParsingValue != int.TryParse(valueOfElementString, out valueOfElement))
             {
                 Console.WriteLine("Вы ввели некорректное значение для элемента массива. Допустимо только челое число. Массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             if (arrayToChange.Length < indexOfElement)
             {
                 Console.WriteLine("Заданный вами индекс находится за границами допустимого значения, массив не был обработан. Для данного массива максимальный допустимый индекс: " + arrayToChange.Length);
-                return ref arrayToChange;
+                return;
             }
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -172,8 +168,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
 
         /// <summary>
@@ -183,12 +177,12 @@ namespace AddToArray
         /// <param name="indexOfElementString"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, string indexOfElementString, int valueOfElement)
+        static void AddToArray(ref int[] arrayToChange, string indexOfElementString, int valueOfElement)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             uint indexOfElement;
@@ -198,13 +192,13 @@ namespace AddToArray
             if (succesInParsingIndex != uint.TryParse(indexOfElementString, out indexOfElement))
             {
                 Console.WriteLine("Вы ввели некорректное значение для индекса. Допустимо только целое число без знака. Массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             if (arrayToChange.Length < indexOfElement)
             {
                 Console.WriteLine("Заданный вами индекс находится за границами допустимого значения, массив не был обработан. Для данного массива максимальный допустимый индекс: " + arrayToChange.Length);
-                return ref arrayToChange;
+                return;
             }
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -230,8 +224,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
 
         /// <summary>
@@ -241,12 +233,12 @@ namespace AddToArray
         /// <param name="toBeFirst"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, int valueOfElement)
+        static void AddToArray(ref int[] arrayToChange, bool toBeFirst, int valueOfElement)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
@@ -275,7 +267,7 @@ namespace AddToArray
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
 
-            return ref arrayToChange;
+            return;
         }
 
         /// <summary>
@@ -285,12 +277,12 @@ namespace AddToArray
         /// <param name="toBeFirst"></param>
         /// <param name="valueOfElementString"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, bool toBeFirst, string valueOfElementString)
+        static void AddToArray(ref int[] arrayToChange, bool toBeFirst, string valueOfElementString)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             uint indexOfElement = toBeFirst ? 0 : Convert.ToUInt32((arrayToChange.Length));
@@ -302,7 +294,7 @@ namespace AddToArray
             if (succesInParsingValue != int.TryParse(valueOfElementString, out valueOfElement))
             {
                 Console.WriteLine("Вы ввели некорректное значение для элемента массива. Допустимо только челое число. Массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -328,8 +320,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
 
         /// <summary>
@@ -338,12 +328,12 @@ namespace AddToArray
         /// <param name="arrayToChange"></param>
         /// <param name="valueOfElement"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, int valueOfElement)
+        static void AddToArray(ref int[] arrayToChange, int valueOfElement)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             uint indexOfElement = Convert.ToUInt32((arrayToChange.Length));
@@ -366,8 +356,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
 
         /// <summary>
@@ -376,12 +364,12 @@ namespace AddToArray
         /// <param name="arrayToChange"></param>
         /// <param name="valueOfElementString"></param>
         /// <returns></returns>
-        static ref int[] AddToArray(ref int[] arrayToChange, string valueOfElementString)
+        static void AddToArray(ref int[] arrayToChange, string valueOfElementString)
         {
             if (arrayToChange == null)
             {
                 Console.WriteLine("Переданный массив хранит NULL, массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             uint indexOfElement = Convert.ToUInt32((arrayToChange.Length));
@@ -393,7 +381,7 @@ namespace AddToArray
             if (succesInParsingValue != int.TryParse(valueOfElementString, out valueOfElement))
             {
                 Console.WriteLine("Вы ввели некорректное значение для элемента массива. Допустимо только челое число. Массив не был обработан.");
-                return ref arrayToChange;
+                return;
             }
 
             int[] arrayForSavingData = new int[arrayToChange.Length];
@@ -414,8 +402,6 @@ namespace AddToArray
                 }
                 arrayToChange[elementOfArrayToOuput] = arrayForSavingData[currentElement];
             }
-
-            return ref arrayToChange;
         }
         static void Main()
         {
